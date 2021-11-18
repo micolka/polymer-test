@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: #2f518f;
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+
+  -webkit-app-region: drag;
+}
+
+header > div {
+  height: 80%;
+  padding: 0 10px;
+  border: 1px solid #ffffff;
+}
+
+header > input {
+  -webkit-app-region: no-drag;
+}
+
+header div:nth-child(1) {
+  width: 50px;
+}
+
+header div:nth-child(2) {
+  width: 50%;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 95px 2fr 6fr;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background: #b1acac;
+}
+
+nav div {
+  margin: 10px;
+  height: 30px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+}
+
+nav div:hover {
+  background: #a18d8d;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  background: #dbd8d8;
+}
+
+aside > h2 {
+  padding: 10px 0 0 10px;
+  height: 50px;
+  border-bottom: 1px solid gray;
+  margin: 0;
+}
+
+aside > span {
+  margin: 10px;
+}
+
+aside > div {
+  margin: 10px;
+  height: 50px;
+  border: 1px solid #ffffff;
+}
+
+aside div:last-child {
+  margin-top: auto;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+article button {
+  margin: auto 0 15px 15px;
+  background-color: #6c60cd;
+  color: #ffffff;
+  width: 200px;
+  height: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 750px) {
+  main {
+    position: relative;
+    display: grid;
+    grid-template-columns: 95px 1fr;
+  }
+
+  aside {
+    position: absolute;
+    left: 95px;
+    top: 0px;
+    bottom: 0px;
+    width: 200px;
+    display: none;
+  }
+
+  .active {
+    display: flex;
+  }
+}
+
+@media (max-height: 490px) {
+  nav section:nth-child(1) div:nth-child(7) {
+    display: none;
+  }
+}
+
+@media (max-height: 450px) {
+  nav section:nth-child(1) div:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-height: 410px) {
+  nav section:nth-child(1) div:nth-child(5) {
+    display: none;
+  }
+}

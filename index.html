@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <link href="index.css" rel="stylesheet">
+    <title>app</title>
+    <meta name="description" content="app description">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="/manifest.json">
+
+    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <script type="module" src="./src/app-chat/app-chat.js" crossorigin></script>
+  </head>
+  <body>
+    <header>
+      <div>nav buttons</div>
+      <input id="input"></input>
+      <div>avatar</div>
+    </header>
+    <main>
+      <nav id="nav-section">
+        <section>
+          <div>activity</div>
+          <div>chat</div>
+          <div>teams</div>
+          <div>calendar</div>
+          <div>calls</div>
+          <div>files</div>
+          <div>community</div>
+          <div>...</div>
+        </section>
+        <section>
+          <div>apps</div>
+          <div>help</div>
+        </section>
+      </nav>
+      <aside id="aside">
+        <h2>Teams</h1>
+        <span>your teams</span>
+        <div>EPAM JS Lab</div>
+        <div>EPAM GymAtHome</div>
+        <div>settings</div>
+      </aside>
+      <article>
+        <app-chat></app-chat>
+        <button id="btn-send">new conversation</button>
+      </article>
+    </main>
+
+    <script>
+      window.addEventListener('send-chat-message', (e) => {
+        console.log(e.detail);
+      })
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent('get-chat-message', {
+          detail: {message: 'hi'},
+          bubbles: true, 
+          composed: true,
+        }))
+      }, 3000)
+      
+    </script>
+  </body>
+</html>
